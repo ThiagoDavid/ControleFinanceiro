@@ -11,6 +11,10 @@ namespace ControleFinanceiro
         public Receita(string descricao, double value, DateTime date) : base(descricao, value, date)
         {
         }
+        public Receita():base()
+        {
+
+        }
 
     }
 }

@@ -8,6 +8,7 @@ namespace ControleFinanceiro
 {
     internal class Despesa : Lancamento
     {
+        public Despesa() : base() { }
         public Despesa(string descricao, double value, DateTime date) : base(descricao, value, date)
         {
         }
