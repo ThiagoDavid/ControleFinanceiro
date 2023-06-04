@@ -22,7 +22,7 @@ namespace ControleFinanceiro
             if (receitas.Count == 0)
                 return;
             carregaGridReceitas();
-            if (receitas.Count == 0)
+            if (despesas.Count == 0)
                 return;
             carregaGridDespesas();
         }
@@ -59,6 +59,26 @@ namespace ControleFinanceiro
             Lancamento despesa = new Despesa("", 0.0, new DateTime());
             despesas.Add(despesa);
             carregaGridDespesas();
+        }
+
+        private void dataGridReceitas_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            Lancamento novaReceita = new Receita();
+            novaReceita.Descricao = Convert.ToString(dataGridReceitas.CurrentRow.Cells[0].Value);
+            novaReceita.Value = Convert.ToDouble(dataGridReceitas.CurrentRow.Cells[1].Value);
+            novaReceita.Data = DateTime.Now; // trocar posteriormente por data selecionada
+
+            receitas[dataGridReceitas.CurrentRow.Index] = novaReceita;
+        }
+
+        private void dataGridDespesas_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            Lancamento novaDespesa = new Receita();
+            novaDespesa.Descricao = Convert.ToString(dataGridDespesas.CurrentRow.Cells[0].Value);
+            novaDespesa.Value = Convert.ToDouble(dataGridDespesas.CurrentRow.Cells[1].Value);
+            novaDespesa.Data = DateTime.Now; // trocar posteriormente por data selecionada
+
+            despesas[dataGridDespesas.CurrentRow.Index] = novaDespesa;
         }
     }
 }

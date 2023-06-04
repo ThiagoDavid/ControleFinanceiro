@@ -40,6 +40,7 @@
             this.buttonSearch = new System.Windows.Forms.ToolStripButton();
             this.labelEntradas = new System.Windows.Forms.Label();
             this.labelSaidas = new System.Windows.Forms.Label();
+            this.buttonSave = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReceitas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDespesas)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -53,6 +54,7 @@
             this.dataGridReceitas.RowTemplate.Height = 25;
             this.dataGridReceitas.Size = new System.Drawing.Size(500, 324);
             this.dataGridReceitas.TabIndex = 0;
+            this.dataGridReceitas.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridReceitas_CellEndEdit);
             // 
             // dataGridDespesas
             // 
@@ -62,6 +64,7 @@
             this.dataGridDespesas.RowTemplate.Height = 25;
             this.dataGridDespesas.Size = new System.Drawing.Size(500, 324);
             this.dataGridDespesas.TabIndex = 1;
+            this.dataGridDespesas.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridDespesas_CellEndEdit);
             // 
             // toolStrip1
             // 
@@ -72,7 +75,8 @@
             this.buttonUpdate,
             this.buttonDelete,
             this.searchTextField,
-            this.buttonSearch});
+            this.buttonSearch,
+            this.buttonSave});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1110, 27);
@@ -154,6 +158,16 @@
             this.labelSaidas.TabIndex = 4;
             this.labelSaidas.Text = "Saidas";
             // 
+            // buttonSave
+            // 
+            this.buttonSave.AccessibleDescription = "Button to save data grid";
+            this.buttonSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
+            this.buttonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(24, 24);
+            this.buttonSave.Text = "toolStripButton1";
+            // 
             // HomeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -189,5 +203,6 @@
         private ToolStripButton buttonSearch;
         private Label labelEntradas;
         private Label labelSaidas;
+        private ToolStripButton buttonSave;
     }
 }
