@@ -12,11 +12,11 @@ namespace ControleFinanceiro
         protected double _value;
         protected DateTime _data;
 
-        protected Lancamento(string descricao, double value, DateTime data)
+        protected Lancamento(string descricao, double value, DateTime date)
         {
             _descricao = descricao;
             _value = value;
-            _data = data;
+            _data = date;
         }
         public void LêDados()
         {
@@ -41,7 +41,7 @@ namespace ControleFinanceiro
             Console.WriteLine("Nome do Aluno: {0}, {1}, {3}", Descricao, _value, Data);
         }
         public string Descricao { get => _descricao; set => _descricao = value; }
-        public abstract double Value();
+        public double Value { get => this._value; set => this._value = value; }
         public DateTime Data { get => _data; set => _data = value; }
     }
 }
