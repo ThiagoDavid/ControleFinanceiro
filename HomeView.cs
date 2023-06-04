@@ -19,12 +19,10 @@ namespace ControleFinanceiro
 
         private void CarregaGrid()                       // Função para Carregar/Montar Grid
         {
-            if (receitas.Count == 0)
-                return;
-            carregaGridReceitas();
-            if (despesas.Count == 0)
-                return;
-            carregaGridDespesas();
+            if (receitas.Count != 0)
+                carregaGridReceitas();
+            if (despesas.Count != 0)
+                carregaGridDespesas();
         }
 
         private void carregaGridReceitas()
@@ -42,9 +40,15 @@ namespace ControleFinanceiro
         private void setupGridStyle(DataGridView dataGrid)
         {
             dataGrid.ClearSelection();
-            dataGrid.Columns[0].Width = 380;
-            dataGrid.Columns[1].Width = 80;
-            dataGrid.Columns[2].Visible = false;
+            if (dataGrid.Columns.Count > 0)
+            {
+                dataGrid.Columns[0].Width = 380;
+                dataGrid.Columns[1].Width = 80;
+                dataGrid.Columns[2].Visible = false;
+            } else
+            {
+                Console.WriteLine("Log - Tentou carregar datagrid com dados vazios.");
+            }
         }
 
         private void buttonAddReceita_Click(object sender, EventArgs e)
@@ -79,6 +83,20 @@ namespace ControleFinanceiro
             novaDespesa.Data = DateTime.Now; // trocar posteriormente por data selecionada
 
             despesas[dataGridDespesas.CurrentRow.Index] = novaDespesa;
+        }
+
+        private void btnRemoverEntrada_Click(object sender, EventArgs e)
+        {
+            receitas.RemoveAt(dataGridReceitas.CurrentRow.Index);
+
+            carregaGridReceitas();
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            despesas.RemoveAt(dataGridDespesas.CurrentRow.Index);
+
+            carregaGridDespesas();
         }
     }
 }

@@ -34,13 +34,13 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.buttonAddReceita = new System.Windows.Forms.ToolStripButton();
             this.buttonAddDespesa = new System.Windows.Forms.ToolStripButton();
-            this.buttonUpdate = new System.Windows.Forms.ToolStripButton();
-            this.buttonDelete = new System.Windows.Forms.ToolStripButton();
+            this.btnRemoverEntrada = new System.Windows.Forms.ToolStripButton();
+            this.btnRemoverSaida = new System.Windows.Forms.ToolStripButton();
             this.searchTextField = new System.Windows.Forms.ToolStripTextBox();
             this.buttonSearch = new System.Windows.Forms.ToolStripButton();
+            this.buttonSave = new System.Windows.Forms.ToolStripButton();
             this.labelEntradas = new System.Windows.Forms.Label();
             this.labelSaidas = new System.Windows.Forms.Label();
-            this.buttonSave = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReceitas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDespesas)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -70,16 +70,16 @@
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buttonSave,
             this.buttonAddReceita,
-            this.buttonAddDespesa,
-            this.buttonUpdate,
-            this.buttonDelete,
+            this.btnRemoverEntrada,
             this.searchTextField,
-            this.buttonSearch,
-            this.buttonSave});
+            this.btnRemoverSaida,
+            this.buttonAddDespesa,
+            this.buttonSearch});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1110, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1110, 37);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -90,8 +90,10 @@
             this.buttonAddReceita.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddReceita.Image")));
             this.buttonAddReceita.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonAddReceita.Name = "buttonAddReceita";
-            this.buttonAddReceita.Size = new System.Drawing.Size(24, 24);
-            this.buttonAddReceita.Text = "toolStripButton1";
+            this.buttonAddReceita.Padding = new System.Windows.Forms.Padding(20, 10, 0, 0);
+            this.buttonAddReceita.Size = new System.Drawing.Size(44, 34);
+            this.buttonAddReceita.Tag = "adicionarReceita";
+            this.buttonAddReceita.Text = "Inserir Receita (entrada)";
             this.buttonAddReceita.Click += new System.EventHandler(this.buttonAddReceita_Click);
             // 
             // buttonAddDespesa
@@ -101,33 +103,41 @@
             this.buttonAddDespesa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.buttonAddDespesa.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddDespesa.Image")));
             this.buttonAddDespesa.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonAddDespesa.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.buttonAddDespesa.Name = "buttonAddDespesa";
-            this.buttonAddDespesa.Size = new System.Drawing.Size(24, 24);
-            this.buttonAddDespesa.Text = "toolStripButton1";
+            this.buttonAddDespesa.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.buttonAddDespesa.Size = new System.Drawing.Size(44, 34);
+            this.buttonAddDespesa.Text = "Inserir Despesa (saida)";
             this.buttonAddDespesa.Click += new System.EventHandler(this.buttonAddDespesa_Click);
             // 
-            // buttonUpdate
+            // btnRemoverEntrada
             // 
-            this.buttonUpdate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
-            this.buttonUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(24, 24);
-            this.buttonUpdate.Text = "toolStripButton1";
+            this.btnRemoverEntrada.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnRemoverEntrada.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoverEntrada.Image")));
+            this.btnRemoverEntrada.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRemoverEntrada.Name = "btnRemoverEntrada";
+            this.btnRemoverEntrada.Padding = new System.Windows.Forms.Padding(20, 0, 10, 0);
+            this.btnRemoverEntrada.Size = new System.Drawing.Size(54, 34);
+            this.btnRemoverEntrada.Tag = "removerReceita";
+            this.btnRemoverEntrada.Text = "Remover Receita ";
+            this.btnRemoverEntrada.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRemoverEntrada.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.btnRemoverEntrada.Click += new System.EventHandler(this.btnRemoverEntrada_Click);
             // 
-            // buttonDelete
+            // btnRemoverSaida
             // 
-            this.buttonDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
-            this.buttonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(24, 24);
-            this.buttonDelete.Text = "toolStripButton1";
+            this.btnRemoverSaida.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnRemoverSaida.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoverSaida.Image")));
+            this.btnRemoverSaida.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRemoverSaida.Name = "btnRemoverSaida";
+            this.btnRemoverSaida.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnRemoverSaida.Size = new System.Drawing.Size(34, 34);
+            this.btnRemoverSaida.Text = "toolStripButton1";
             // 
             // searchTextField
             // 
             this.searchTextField.Name = "searchTextField";
-            this.searchTextField.Size = new System.Drawing.Size(100, 27);
+            this.searchTextField.Size = new System.Drawing.Size(100, 37);
             // 
             // buttonSearch
             // 
@@ -135,8 +145,21 @@
             this.buttonSearch.Image = ((System.Drawing.Image)(resources.GetObject("buttonSearch.Image")));
             this.buttonSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(24, 24);
-            this.buttonSearch.Text = "toolStripButton1";
+            this.buttonSearch.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.buttonSearch.Size = new System.Drawing.Size(44, 34);
+            this.buttonSearch.Text = "Remover Despesa";
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.AccessibleDescription = "Button to save data grid";
+            this.buttonSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
+            this.buttonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(20, 1, 0, 2);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(24, 34);
+            this.buttonSave.Text = "toolStripButton1";
             // 
             // labelEntradas
             // 
@@ -157,16 +180,6 @@
             this.labelSaidas.Size = new System.Drawing.Size(59, 21);
             this.labelSaidas.TabIndex = 4;
             this.labelSaidas.Text = "Saidas";
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.AccessibleDescription = "Button to save data grid";
-            this.buttonSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
-            this.buttonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(24, 24);
-            this.buttonSave.Text = "toolStripButton1";
             // 
             // HomeView
             // 
@@ -197,12 +210,12 @@
         private ToolStrip toolStrip1;
         private ToolStripButton buttonAddReceita;
         private ToolStripButton buttonAddDespesa;
-        private ToolStripButton buttonUpdate;
-        private ToolStripButton buttonDelete;
+        private ToolStripButton btnRemoverEntrada;
         private ToolStripTextBox searchTextField;
         private ToolStripButton buttonSearch;
         private Label labelEntradas;
         private Label labelSaidas;
         private ToolStripButton buttonSave;
+        private ToolStripButton btnRemoverSaida;
     }
 }
