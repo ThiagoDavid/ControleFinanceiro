@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ControleFinanceiro
 {
-    public class Despesa : Transacao
+    public class Lucro : Transacao
     {
-        public Despesa()
+        public Lucro()
         {
-            Tipo = "despesa";
+            Tipo = "lucro";
         }
 
         public string Tipo { get; set; }
