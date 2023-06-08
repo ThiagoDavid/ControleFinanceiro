@@ -45,6 +45,8 @@ namespace ControleFinanceiro
                 dataGrid.Columns[0].Width = 380;
                 dataGrid.Columns[1].Width = 80;
                 dataGrid.Columns[2].Visible = false;
+                dataGrid.Columns[3].Visible = false; // deabilita id
+                dataGrid.Columns[4].Visible = false; // esabilita categoria
             } else
             {
                 Console.WriteLine("Log - Tentou carregar datagrid com dados vazios.");
@@ -60,7 +62,7 @@ namespace ControleFinanceiro
 
         private void buttonAddDespesa_Click(object sender, EventArgs e)
         {
-            Lancamento despesa = new Despesa("", 0.0, new DateTime());
+            Lancamento despesa = new Despesa();
             despesas.Add(despesa);
             carregaGridDespesas();
         }

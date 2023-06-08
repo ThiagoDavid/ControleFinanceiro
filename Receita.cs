@@ -13,7 +13,6 @@ namespace ControleFinanceiro
         }
         public Receita():base()
         {
-
         }
 
     }

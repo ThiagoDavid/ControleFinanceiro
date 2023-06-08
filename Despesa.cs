@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace ControleFinanceiro
 {
-    public class Despesa : Transacao
+    class Despesa : Lancamento
     {
         public Despesa()
         {
-            Tipo = "despesa";
         }
+        public Despesa(string descricao, double value, DateTime date) : base(descricao, value, date) { }
 
-        public string Tipo { get; set; }
     }
 }

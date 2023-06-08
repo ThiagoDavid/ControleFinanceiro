@@ -43,5 +43,7 @@ namespace ControleFinanceiro
         public string Descricao { get => _descricao; set => _descricao = value; }
         public double Value { get => this._value; set => this._value = value; }
         public DateTime Data { get => _data; set => _data = value; }
+        public int Id { get; set; }
+        public string? Categoria { get; set; }
     }
 }
